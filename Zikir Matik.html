@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+    </style>
+    <title>007 Zikir Matik</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+        .navbar{
+            background-color: rgba(20, 20, 20, 0.5);
+            background-position: center;
+            background-size: cover;
+            color: white;
+            user-select: none;
+        }
+        .zikirmatik{
+            width: 100%;
+	        position: absolute;
+	        top: 50%;
+	        transform: translateY(-50%);
+	        text-align: center;
+        }
+        .dugme1{
+            border-radius: 0px;
+            color: white;
+            border-color: #005035;
+            background-color: #008d5e;
+            transition-duration: 0.3s;
+            border-radius: 50px;
+            width: 70px;
+            height: 70px;
+            font-size: 20px;
+        }
+        .dugme2{
+            border-radius: 0px;
+            color: white;
+            border-color: #005035;
+            background-color: #008d5e;
+            transition-duration: 0.3s;
+            border-radius: 50px;
+            width: 70px;
+            height: 70px;
+            font-size: 20px;
+        }
+        .dugme3{
+            border-radius: 0px;
+            color: white;
+            border-color: #005035;
+            background-color: #008d5e;
+            transition-duration: 0.3s;
+            border-radius: 50px;
+            width: 70px;
+            height: 70px;
+        }
+        .dugme4{
+            border-radius: 0px;
+            color: white;
+            border-color: #005035;
+            background-color: #008d5e;
+            transition-duration: 0.3s;
+            border-radius: 50px;
+            width: 70px;
+            height: 70px;
+        }
+        .dugme5{
+            border-radius: 0px;
+            color: white;
+            border-color: #005035;
+            background-color: #008d5e;
+            transition-duration: 0.3s;
+            border-radius: 50px;
+            width: 70px;
+            height: 70px;
+        }
+        .dugme1:hover{
+            border-radius: 10px;
+        }
+        .dugme2:hover{
+            border-radius: 10px;
+        }
+        .dugme3:hover{
+            border-radius: 10px;
+        }
+        .dugme4:hover{
+            border-radius: 10px;
+        }
+        .dugme5:hover{
+            border-radius: 10px;
+        }
+        #display{
+            font-size: 70px;
+        }
+        .ayarlar{
+            user-select: none;
+        }
+        #ayarkapat{
+            color: rgb(228, 0, 0);
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1><strong>Zikir Matik</strong></h1>
+    </div>
+    <div class="zikirmatik">
+        <input type="button" class="dugme1" onclick="arttir()" value="+">
+        <br>
+        <h1 id="display">0</h1>
+        <input type="button" class="dugme2" onclick="azalt()" value="-">
+        <br>
+        <input type="button" class="dugme3" onclick="limit()" value="Limit Ekle">
+        <input type="button" class="dugme4" onclick="reset()" value="Sıfırla">
+        <input type="button" class="dugme5" onclick="ayarlar()" value="Ayarlar">
+    </div>
+    <div class="ayarlar" id="ayarlar">
+        <form>
+            <h1 onclick="ayarlarkapat()">Ayarları Kapat</h1>
+            <input type="button" value="Sayfayı Yenile" onclick="location.reload()">
+            <br>
+            <br>
+            <label for="enternumber">Zikir Sayısı:</label><br>
+            <input type="number" id="enternumber">
+            <input type="button" id="numbersubmit" value="Gir" onclick="enterzikir()">
+        </form>
+    </div>
+
+    <script>
+        sayi = 0;
+        sayi = document.cookie
+        sayi = Number(sayi)
+        document.getElementById("ayarlar").style.display = "none";
+        document.getElementById("display").innerHTML = sayi;
+        function arttir() {
+            sayi = sayi + 1;
+            document.getElementById("display").innerHTML = sayi;
+            document.cookie = sayi;
+            if (limit == sayi) {
+                alert("Limite ulaştınız. Allah(c.c.) Kabul Etsin.")
+            }
+        }
+        function azalt() {
+            sayi = sayi - 1;
+            document.getElementById("display").innerHTML = 
+            sayi;
+            document.cookie = sayi;
+            if (limit == sayi) {
+                alert("Limite ulaştınız. Allah(c.c.) Kabul Etsin.")
+            }
+        }
+        function reset() {
+            sayi = 0;
+            document.getElementById("display").innerHTML = 
+            sayi;
+            document.cookie = sayi;
+            if (limit == sayi) {
+                alert("Limite ulaştınız. Allah(c.c.) Kabul Etsin.")
+            }
+        }
+        function limit() {
+            limit = prompt("Limit Ekleyin", "1000");
+            if (limit == sayi) {
+                alert("Limite ulaştınız. Allah(c.c.) Kabul Etsin.")
+            }
+        }
+        function ayarlar() {
+            document.getElementById("ayarlar").style.display = "block";
+        }
+        function ayarlarkapat() {
+            document.getElementById("ayarlar").style.display = "none";
+        }
+        function enterzikir() {
+            var inputDeger = document.getElementById("enternumber").value;
+            sayi = inputDeger
+            sayi = Number(sayi)
+            document.getElementById("display").innerHTML = sayi;
+        }
+    </script>
+</body>
+</html>
